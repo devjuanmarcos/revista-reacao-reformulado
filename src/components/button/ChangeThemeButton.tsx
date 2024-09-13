@@ -15,7 +15,7 @@ export const ChangeThemeButton = () => {
   if (!mounted) {
     return (
       <button className="p-1" aria-label={theme === "light" ? "Alterar para tema escuro" : "Alterar para tema claro"}>
-        <MdDarkMode size="1.08rem" color="rgb(var(--var-text-verde-medio))" />
+        <MdDarkMode size="1.08rem" color="rgb(var(--var-text-branco))" />
       </button>
     );
   }
@@ -31,9 +31,9 @@ export const ChangeThemeButton = () => {
       aria-label={theme === "light" ? "Alterar para tema escuro" : "Alterar para tema claro"}
     >
       {theme == "light" ? (
-        <MdDarkMode size="1.08rem" color="rgb(var(--var-text-verde-medio))" />
+        <MdDarkMode size="1.08rem" color="rgb(var(--var-text-branco))" />
       ) : (
-        <MdLightMode size="1.08rem" color="rgb(var(--var-text-verde-medio))" />
+        <MdLightMode size="1.08rem" color="rgb(var(--var-text-branco))" />
       )}
     </button>
   );

@@ -6,10 +6,11 @@ type NextImageType = {
   altImage: string;
   extraClassName?: string;
   className?: string;
-  ariaLabel: string;
   sizes: string;
   fill?: boolean;
   draggable?: boolean;
+  width?: number;
+  height: number;
 };
 
 type IconProps = {

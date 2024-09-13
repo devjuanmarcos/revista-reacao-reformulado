@@ -69,6 +69,7 @@ const config: Config = {
           },
 
           cinza: {
+            "150": "rgb(var(--var-cinza-150))",
             "400": "rgb(var(--var-cinza-400))",
             "500": "rgb(var(--var-cinza-500))",
             "600": "rgb(var(--var-cinza-600))",

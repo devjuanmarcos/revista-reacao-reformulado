@@ -3,7 +3,9 @@ import "./globals.css";
 import { HtmlFontSizeProvider } from "@/context/HtmlFontSizeContext";
 import { ThemeProvider } from "next-themes";
 import { WindowSizeProvider } from "@/context/WindowSizeContext";
-import { Nunito, Martel, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+
 import { Header } from "@/components/header/Header";
 import { BarTools } from "@/components/barra-acessibilidade/BarTools";
 import Script from "next/script";
@@ -50,23 +52,6 @@ export const metadata: Metadata = {
   },
 };
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-
-const nunito = Nunito({
-  subsets: ["latin"],
-  variable: "--font-nunito",
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
-const martel = Martel({
-  subsets: ["latin"],
-  variable: "--font-lato",
-  weight: ["400", "700"],
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -79,7 +64,7 @@ export default function RootLayout({
       lang="pt-BR"
     >
       <Script defer data-domain="biomob.org" src="https://plausible.biomob.app/js/script.js" />
-      <body className={`${nunito.variable} ${martel.variable} ${montserrat.variable}`}>
+      <body className={`${GeistSans.className}`}>
         <WindowSizeProvider>
           <HtmlFontSizeProvider>
             <ThemeProvider defaultTheme="dark" attribute="class" enableSystem={false}>

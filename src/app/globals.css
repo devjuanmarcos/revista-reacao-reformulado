@@ -8,6 +8,7 @@
     --var-branco-100: 255, 255, 255;
 
     /* CINZA  */
+    --var-cinza-150: 168, 168, 168;
     --var-cinza-400: 76, 76, 76;
     --var-cinza-500: 63, 63, 63;
     --var-cinza-600: 56, 56, 56;
@@ -20,23 +21,25 @@
 
     /* background colors */
     --var-background-principal: 253, 253, 253;
-    --var-marca-50: 241, 252, 248;
-    --var-marca-65: 231, 251, 244;
-    --var-marca-80: 218, 249, 239;
-    --var-marca-100: 208, 247, 234;
-    --var-marca-100-08: 208, 247, 234, 0.9;
-    --var-marca-200: 162, 237, 215;
-    --var-marca-300: 107, 221, 191;
-    --var-marca-400: 54, 179, 150;
-    --var-marca-500: 35, 169, 140;
-    --var-marca-600: 26, 135, 114;
-    --var-marca-700: 25, 108, 93;
-    --var-marca-800: 24, 87, 76;
-    --var-marca-900: 25, 72, 64;
-    --var-marca-950: 8, 43, 38;
+
+    --var-marca-50: 246, 249, 249;
+    --var-marca-75: 241, 247, 247;
+    --var-marca-100: 236, 244, 244;
+    --var-marca-100-08: 236, 244, 244, 0.9;
+    --var-marca-200: 47, 183, 198;
+    --var-marca-300: 37, 135, 149;
+    --var-marca-400: 37, 107, 121;
+    --var-marca-500: 28, 85, 97;
+    --var-marca-600: 22, 68, 77;
+    --var-marca-700: 18, 56, 63;
+    --var-marca-800: 14, 45, 50;
+    --var-marca-850: 11, 35, 39;
+    --var-marca-900: 8, 28, 31;
+    --var-marca-950: 5, 19, 21;
 
     /* text colors */
     --var-text-branco: 224, 242, 241;
+    --var-text-preto: 0, 0, 0;
     --var-text-cinza-claro: 88, 88, 88;
     --var-text-cinza-escuro: 56, 56, 56;
     --var-text-verde-claro: 107, 221, 191;
@@ -145,46 +148,40 @@
     transition: background-color 0.3s linear;
   }
 
-  .h1-bold {
-    font-weight: bold;
-    font-size: 2.375rem;
-    line-height: 2.875rem;
+  .h2-medium {
+    font-weight: 500;
+    font-size: 1.5rem;
   }
 
-  .h2-semibold {
+  .title-card {
+    font-size: 1.25rem;
     font-weight: 600;
-    font-size: 2rem;
-    line-height: 2.625rem;
   }
 
-  .top-title-medium {
-    font-weight: 500;
+  .paragraph-1 {
     font-size: 1rem;
-    line-height: 1.375rem;
+    line-height: auto;
   }
 
-  .title-card-medium {
-    font-weight: 500;
-    font-size: 1.375rem;
-  }
-
-  .paragraph-card {
-    font-weight: normal;
-    font-size: 0.875rem;
-    font-weight: 132%;
-  }
-
-  .paragraph-banner {
-    font-weight: normal;
-    font-size: 1.125rem;
+  .paragraph-2 {
+    font-size: 1rem;
     line-height: 1.75rem;
+  }
+
+  .button-regular {
+    font-size: 0.875rem;
+  }
+
+  .nav-bar-medium {
+    font-size: 1rem;
+    font-weight: 500;
   }
 
   .cta {
     font-weight: normal;
     font-size: 0.875rem;
-    font-weight: 132%;
-    color: rgb(var(--var-verde-300));
+    color: rgb(var(--var-marca-200));
+    text-decoration: underline;
   }
 
   @media (max-width: 480px) {
@@ -195,9 +192,8 @@
   }
 
   body {
-    color: rgb(var(--var-text-cinza-escuro));
+    color: rgb(var(--var-text-preto));
     background-color: rgb(var(--var-background-principal));
-    font-family: var(--font-montserrat);
     min-height: 100vh;
     overflow-x: hidden;
   }
@@ -205,14 +201,6 @@
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
-}
-
-.container.collapsed {
-  --sidebar-width: 4.25rem;
-
-  @media (max-width: 480px) {
-    --sidebar-width: 0rem;
-  }
 }
 
 .header {
@@ -227,7 +215,7 @@
   grid-area: main;
 }
 
-.container {
+.section {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -235,7 +223,7 @@
 }
 
 @media (max-width: 1024px) {
-  .container {
+  .section {
     padding-inline: 20px;
   }
 }

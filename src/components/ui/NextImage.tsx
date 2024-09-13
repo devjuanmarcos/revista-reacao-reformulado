@@ -7,7 +7,6 @@ import React from "react";
 
 export const NextImage: React.FC<NextImageType> = ({
   altImage,
-  ariaLabel,
   imageUrl,
   imageDarkUrl,
   className,
@@ -15,6 +14,8 @@ export const NextImage: React.FC<NextImageType> = ({
   fill,
   draggable,
   sizes,
+  width,
+  height,
 }) => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
   const { theme } = useTheme();
@@ -32,17 +33,17 @@ export const NextImage: React.FC<NextImageType> = ({
       unselectable="on"
       onDragStart={(e) => e.preventDefault()}
       className="relative w-full h-full overflow-hidden"
-      title={ariaLabel}
+      title={altImage}
     >
       <Image
         src={imageDarkUrl && theme == "dark" ? imageDarkUrl : imageUrl}
         alt={altImage}
-        aria-label={ariaLabel}
+        aria-label={altImage}
         className={`${className || "w-full h-full object-cover select-none"} ${extraClassName}`}
         fill={fill || false}
         draggable={draggable || false}
-        width={fill ? 0 : 500}
-        height={fill ? 0 : 600}
+        width={fill ? 0 : width || 500}
+        height={fill ? 0 : height || 600}
         sizes={sizes}
         quality={100}
       />
