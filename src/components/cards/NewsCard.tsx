@@ -1,5 +1,16 @@
 import Link from "next/link";
 import { NextImage } from "../ui/NextImage";
+import { NextImageType } from "@/@types/types";
+
+interface NewsCardProps {
+  image?: NextImageType;
+  category: string;
+  title: string;
+  paragraph: string;
+  date: string;
+  link: string;
+  extraClassName?: string;
+}
 
 export const NewsCardMain = () => {
   return (
@@ -33,23 +44,29 @@ export const NewsCardMain = () => {
   );
 };
 
-export const NewsCard = () => {
+export const NewsCard = ({ category, date, link, paragraph, title, image, extraClassName }: NewsCardProps) => {
   return (
-    <div className="flex flex-col gap-2 text-start border-b border-var-cinza-150">
-      <div className="flex flex-col text-start">
+    <div className={`flex flex-col gap-2 text-start border-b border-var-cinza-150 w-full ${extraClassName}`}>
+      <div className="flex flex-col gap-2 text-start">
         <div className="flex gap-[.625rem] items-center">
-          <span className="paragraph-1 p-1 rounded-[.25rem] border border-[#FF5C00] w-max">Justiça e política</span>
-          <span className="">- 20 de outubro de 2024</span>
+          <span className="paragraph-1 p-1 rounded-[.25rem] border border-[#FF5C00] w-max">{category}</span>
+          <span className="">- {date}</span>
         </div>
-        <h2 className="title-card">Férias de julho: dicas de atividades para crianças com autismo</h2>
-        <p className="mt-2 paragraph-1 ">
-          As férias de julho podem ser desafiadoras para crianças com autismo devido à hipersensibilidade sensorial
-          causada por estímulos excessivos. Estratégias como a dessensibilização sistematizada e a criação de um
-          ambiente tranquilo podem ajudar.
-        </p>
+        {image && (
+          <NextImage
+            imageUrl="/img/temp/temp.png"
+            altImage="Imagem alternativa"
+            sizes="400px"
+            width={400}
+            height={235}
+            className="w-full h-full object-cover bg-cover bg-center rounded-lg"
+          />
+        )}
+        <h2 className="title-card">{title}</h2>
+        <p className="paragraph-1 ">{paragraph}</p>
       </div>
 
-      <Link href={"#"} className="cta mb-4">
+      <Link href={link} className="cta mb-4">
         Continuar lendo
       </Link>
     </div>
