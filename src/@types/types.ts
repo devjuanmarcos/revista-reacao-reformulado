@@ -21,4 +21,12 @@ type IconProps = {
   alt: string;
 };
 
-export type { NextImageType, IconProps };
+type AdvertisingSectionProps = {
+  href?: string;
+  src: string;
+  alt: string;
+  title?: string;
+  description?: string;
+};
+
+export type { NextImageType, IconProps, AdvertisingSectionProps };

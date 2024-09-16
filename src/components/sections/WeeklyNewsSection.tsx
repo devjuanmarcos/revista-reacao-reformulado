@@ -29,7 +29,7 @@ export function WeeklyNewsSection() {
           <CarouselItem key={index} className="lg:basis-[auto] select-none">
             <div className="p-1 flex items-center justify-center">
               <NewsCard
-                extraClassName="w-full max-w-[25rem]"
+                extraClassName="w-full max-w-[80vw] lg:max-w-[25rem]"
                 image={image}
                 title="Férias de julho: dicas de atividades para crianças com autismo"
                 paragraph="As férias de julho podem ser desafiadoras para crianças com autismo devido à hipersensibilidade sensorial
