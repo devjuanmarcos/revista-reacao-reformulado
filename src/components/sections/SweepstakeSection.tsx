@@ -9,16 +9,8 @@ export const SweepstakeSection = ({ alt, src, description, href, title }: Advert
   return (
     <section className="section flex w-full h-full flex-col gap-8">
       <div className="w-full flex gap-[4.4375rem] max-md:gap-8  justify-between items-center max-md:flex-col ">
-        <Link href={href || "#"} target="_blank">
-          <Image
-            src={src}
-            alt={alt}
-            className="w-auto h-full max-h-[45rem] rounded-3xl"
-            sizes="100vw"
-            width={1200}
-            height={800}
-            quality={100}
-          />
+        <Link href={href || "#"} target="_blank" className="w-full h-auto max-h-[45rem] ">
+          <Image src={src} alt={alt} className="rounded-3xl" sizes="100vw" width={1200} height={800} quality={100} />
         </Link>
 
         <div className="flex flex-col  gap-8   w-full ">

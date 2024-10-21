@@ -9,7 +9,7 @@ export const MainSection = () => {
       <div className="w-full col-span-3">
         <NewsCardMain />
       </div>
-      <div className="flex flex-col gap-5 p-[.625rem] col-span-2  md:[&>*:last-child]:hidden 2xl:[&>*:last-child]:flex ">
+      <div className="flex flex-col gap-5 p-[.625rem] col-span-3 md:col-span-2  md:[&>*:last-child]:hidden 2xl:[&>*:last-child]:flex ">
         <TopicTitle text="Notícias populares" />
 
         <NewsCard

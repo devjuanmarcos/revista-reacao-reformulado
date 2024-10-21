@@ -11,7 +11,6 @@ import { Boletim } from "@/@types/services";
 export const VideoFrameSection = () => {
   const [video, setVideo] = React.useState<Boletim>();
   const [thumbnailUrl, setThumbnailUrl] = React.useState<string>("");
-  const router = useRouter();
 
   React.useEffect(() => {
     const fetchVideo = async () => {

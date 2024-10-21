@@ -4,6 +4,8 @@ import { NextImageType } from "@/@types/types";
 
 interface NewsCardProps {
   image?: NextImageType;
+  imageUrl?: string;
+  altImage?: string;
   category: string;
   title: string;
   paragraph: string;
@@ -44,7 +46,16 @@ export const NewsCardMain = () => {
   );
 };
 
-export const NewsCard = ({ category, date, link, paragraph, title, image, extraClassName }: NewsCardProps) => {
+export const NewsCard = ({
+  category,
+  date,
+  link,
+  paragraph,
+  title,
+  image,
+  extraClassName,
+  imageUrl,
+}: NewsCardProps) => {
   return (
     <div className={`flex flex-col gap-2 text-start border-b border-var-cinza-150 w-full ${extraClassName}`}>
       <div className="flex flex-col gap-2 text-start">
@@ -54,12 +65,22 @@ export const NewsCard = ({ category, date, link, paragraph, title, image, extraC
         </div>
         {image && (
           <NextImage
-            imageUrl="/img/temp/temp.png"
+            imageUrl={image.imageUrl}
             altImage="Imagem alternativa"
             sizes="400px"
             width={400}
             height={235}
-            className="w-full h-full object-cover bg-cover bg-center rounded-lg"
+            className="w-full h-[14.6875rem] object-cover bg-cover bg-center rounded-lg"
+          />
+        )}
+        {imageUrl && (
+          <NextImage
+            imageUrl={imageUrl}
+            altImage="Imagem alternativa"
+            sizes="400px"
+            width={400}
+            height={235}
+            className="w-full h-[14.6875rem] object-cover bg-cover bg-center rounded-lg"
           />
         )}
         <h2 className="title-card">{title}</h2>

@@ -16,35 +16,38 @@ export const LogoWithTheme = () => {
 
   if (!mounted) {
     return (
-      <Link href={"/"} className="relative w-100%  h-[1.875rem] ">
-        <NextImage
-          imageUrl="/img/LOGO-ABERTALIGHT.png"
-          altImage="Logo da Biomob"
-          ariaLabel="Logo da Biomob"
+      <Link href={"/"} className="flex justify-center items-center ">
+        <Image
+          src="/img/LOGO-ABERTALIGHT.png"
+          alt="Logo da Biomob"
           sizes="100vw"
-          className="w-[10.25rem]"
+          className="w-[8.0625rem] h-auto "
+          height={40}
+          width={129}
         />
       </Link>
     );
   }
 
   return (
-    <Link href={"/"} className="relative w-100%  h-[1.875rem] ">
+    <Link href={"/"} className="flex justify-center items-center ">
       {theme == "light" ? (
-        <NextImage
-          imageUrl="/img/LOGO-ABERTALIGHT.png"
-          altImage="Logo da Biomob"
-          ariaLabel="Logo da Biomob"
+        <Image
+          src="/img/LOGO-ABERTALIGHT.png"
+          alt="Logo da Biomob"
           sizes="100vw"
-          className="w-[10.25rem]"
+          className="w-[8.0625rem] h-auto"
+          height={40}
+          width={129}
         />
       ) : (
-        <NextImage
-          imageUrl="/img/LOGO-ABERTA.png"
-          altImage="Logo da Biomob"
-          ariaLabel="Logo da Biomob"
+        <Image
+          src="/img/LOGO-ABERTALIGHT.png"
+          alt="Logo da Biomob"
           sizes="100vw"
-          className="w-[10.25rem]"
+          className="w-[8.0625rem] h-auto"
+          height={40}
+          width={129}
         />
       )}
     </Link>

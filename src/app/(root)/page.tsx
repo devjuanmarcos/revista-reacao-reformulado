@@ -28,7 +28,7 @@ export default async function HomePage() {
 const Sweepstake: AdvertisingSectionProps = {
   alt: "1 CANECA DA MOVE DESENVOLVIMENTO HUMANO",
   src: "/img/temp/sorteio/caneca-move-desenvolvimento.jpeg",
-  title: "Sorteio especial",
+  title: "Sorteio de uma linda caneca da MOVE Desenvolvimento humano",
   description:
     "Preencha o Formulário de inscrição para participar do sorteio ESPECIAL DE 01 CANECA DA MOVE DESENVOLVIMENTO HUMANO",
 };

@@ -29,4 +29,14 @@ type AdvertisingSectionProps = {
   description?: string;
 };
 
-export type { NextImageType, IconProps, AdvertisingSectionProps };
+type Category = {
+  id: string;
+  name: string;
+  color: string;
+};
+
+type Categories = {
+  [key: string]: Category;
+};
+
+export type { NextImageType, IconProps, AdvertisingSectionProps, Category, Categories };
