@@ -4,6 +4,9 @@ import * as React from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { NewsCard } from "../cards/NewsCard";
 import { TopicTitle } from "../ui/TopicTitle";
+import { Noticia } from "@/@types/services";
+import { getAllWeeklyNewsAction } from "@/app/actions/newsActions";
+import { getCategoryInfo } from "@/utils/categories";
 
 const image = {
   imageUrl: "/img/temp/temp.png",
@@ -15,6 +18,27 @@ const image = {
 };
 
 export function WeeklyNewsSection() {
+  const [weeklyNews, setWeeklyNews] = React.useState<Noticia[] | null>(null);
+  const [isMounted, setIsMounted] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    async function fetch() {
+      try {
+        const res = await getAllWeeklyNewsAction();
+        setWeeklyNews(res.content);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsMounted(true);
+      }
+    }
+    fetch();
+  }, []);
+
+  if (!isMounted || !weeklyNews) {
+    return null;
+  }
+
   return (
     <Carousel
       opts={{
@@ -25,19 +49,17 @@ export function WeeklyNewsSection() {
       <TopicTitle text="Notícias do semana" />
 
       <CarouselContent>
-        {Array.from({ length: 23 }).map((_, index) => (
-          <CarouselItem key={index} className="lg:basis-[auto] select-none">
+        {weeklyNews.map((data) => (
+          <CarouselItem key={data.id} className="lg:basis-[auto] select-none">
             <div className="p-1 flex items-center justify-center">
               <NewsCard
                 extraClassName="w-full max-w-[80vw] lg:max-w-[25rem]"
-                image={image}
-                title="Férias de julho: dicas de atividades para crianças com autismo"
-                paragraph="As férias de julho podem ser desafiadoras para crianças com autismo devido à hipersensibilidade sensorial
-          causada por estímulos excessivos. Estratégias como a dessensibilização sistematizada e a criação de um
-          ambiente tranquilo podem ajudar."
-                category="Justiça e Política"
+                imageUrl={data.imagem}
+                title={data.titulo}
+                paragraph={data.resumo}
+                category={getCategoryInfo(data.categoria).name}
                 date="20 de outubro de 2024"
-                link="#"
+                link={`/noticias/noticia?id=${data.id}`}
               />
             </div>
           </CarouselItem>

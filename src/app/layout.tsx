@@ -3,14 +3,13 @@ import "./globals.css";
 import { HtmlFontSizeProvider } from "@/context/HtmlFontSizeContext";
 import { ThemeProvider } from "next-themes";
 import { WindowSizeProvider } from "@/context/WindowSizeContext";
-import { Montserrat } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 
 import { Header } from "@/components/header/Header";
 import { BarTools } from "@/components/barra-acessibilidade/BarTools";
 import Script from "next/script";
 
-const APP_NAME = "Biomob";
+const APP_NAME = "Revista Reação";
 const APP_DEFAULT_TITLE = "Biomob";
 const APP_TITLE_TEMPLATE = "%s";
 const APP_DESCRIPTION = "Biomob!";
@@ -72,7 +71,7 @@ export default function RootLayout({
                 <BarTools />
               </div>
               <Header />
-              <main className="pt-[120px]">{children}</main>
+              <main className="pt-[5rem]">{children}</main>
               <div className="flex justify-center w-full bg-[rgb(var(--var-background-principal))] pt-8"></div>
             </ThemeProvider>
           </HtmlFontSizeProvider>

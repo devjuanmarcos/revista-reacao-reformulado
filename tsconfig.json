@@ -18,7 +18,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/sections/*": ["./src/components/sections/*"]
     },
     "types": ["@serwist/next/typings"]
   },

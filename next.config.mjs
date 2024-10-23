@@ -28,7 +28,24 @@ export default withSerwist({
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "biomobtinastorage.blob.core.windows.net",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
-    domains: ["i.ytimg.com", "biomobtinastorage.blob.core.windows.net", "img.youtube.com"],
   },
 });

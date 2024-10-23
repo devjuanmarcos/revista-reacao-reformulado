@@ -14,3 +14,7 @@ export const categories: Categories = {
   TRABALHO: { id: "TRABALHO", name: "Trabalho", color: "#41172B" },
   ESPECIAL: { id: "ESPECIAL", name: "Especial", color: "#41172B" },
 };
+
+export function getCategoryInfo(category: keyof Categories) {
+  return categories[category];
+}

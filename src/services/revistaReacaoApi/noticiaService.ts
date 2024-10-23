@@ -17,7 +17,7 @@ export async function findAllPaginatedNoticia(
   return fetchWrapper(`/noticias?${queryString}`);
 }
 
-export async function findAllDailyNoticia(): Promise<Noticia[]> {
+export async function findAllDailyNoticia(): Promise<ApiResponse<Noticia>> {
   const dataAtual = new Date();
   const timeZone = "America/Sao_Paulo";
   const dataAtualFormatada = dataAtual
@@ -33,6 +33,10 @@ export async function findAllDailyNoticia(): Promise<Noticia[]> {
 
   const queryString = new URLSearchParams({ data: dataAtualFormatada }).toString();
   return fetchWrapper(`/noticias/filtradas?${queryString}`);
+}
+
+export async function findAllWeeklyNoticia(): Promise<ApiResponse<Noticia>> {
+  return fetchWrapper(`/noticias/filtradas?ultimaSemana=true&size=100`, { cache: "no-store" });
 }
 
 export async function findNoticiaById(id: string): Promise<Noticia> {

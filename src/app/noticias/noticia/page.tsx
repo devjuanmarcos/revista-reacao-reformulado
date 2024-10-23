@@ -5,6 +5,7 @@ import { NoticiaIndividual } from "@/components/templates/NoticiaIndividual";
 import { findAllFilteredNoticia, findNoticiaById } from "@/services/revistaReacaoApi/noticiaService";
 import { Metadata } from "next";
 import { FilterNoticiaParams } from "@/@types/services";
+import defaultMetatada from "@/metadata/defaultMetadata";
 
 export async function generateMetadata({
   searchParams,
@@ -37,25 +38,7 @@ export async function generateMetadata({
       keywords: "Promovendo inclusão e diversidade.",
     };
   } catch (error) {
-    return {
-      title: "Notícias Revista Reação",
-      description: "Promovendo inclusão e diversidade.",
-      openGraph: {
-        title: "Notícias Revista Reação",
-        description: "Promovendo inclusão e diversidade.",
-        url: `https://revistareacao.com.br/noticias/`,
-        type: "article",
-        images: [
-          {
-            url: "http://localhost:3000/_next/image?url=%2Fimg%2FLOGO-ABERTA.png&w=2048&q=100",
-            alt: "Logotipo da Biomob",
-            width: 1200,
-            height: 630,
-          },
-        ],
-      },
-      keywords: "Promovendo inclusão e diversidade.",
-    };
+    return defaultMetatada();
   }
 }
 

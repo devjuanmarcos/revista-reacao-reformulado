@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { TopicTitle } from "../ui/TopicTitle";
 import { findById } from "@/services/revistaReacaoApi/boletimService";
 import { Boletim } from "@/@types/services";
@@ -24,7 +23,6 @@ export const VideoFrameSection = () => {
         console.error("Error fetching latest video:", error);
       }
     };
-
     fetchVideo();
   }, []);
 

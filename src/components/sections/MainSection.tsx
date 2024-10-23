@@ -1,44 +1,59 @@
 "use client";
 
+import { Noticia } from "@/@types/services";
+import { getNewsByIdAction, getPaginatedNewsAction } from "@/app/actions/newsActions";
 import { NewsCard, NewsCardMain } from "@/components/cards/NewsCard";
 import { TopicTitle } from "@/components/ui/TopicTitle";
+import { getCategoryInfo } from "@/utils/categories";
+import React from "react";
 
 export const MainSection = () => {
+  const [isMounted, setIsMounted] = React.useState<boolean>(false);
+  const [threeNewsData, setThreeNewsData] = React.useState<Noticia[] | null>(null);
+  const [unicNewsData, setUnicNewsData] = React.useState<Noticia | null>(null);
+
+  React.useEffect(() => {
+    async function fetch() {
+      const ThreeNewsPagination = {
+        page: 2,
+        size: 3,
+        asc: true,
+      };
+      try {
+        const threeNewsRes = await getPaginatedNewsAction(ThreeNewsPagination);
+        const unicNewsRes = await getNewsByIdAction("f4472088-0bf2-4925-a396-17efcf958080");
+        setThreeNewsData(threeNewsRes.content);
+        setUnicNewsData(unicNewsRes);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsMounted(true);
+      }
+    }
+    fetch();
+  }, []);
+
+  if (!isMounted || !unicNewsData || !threeNewsData) {
+    return null;
+  }
+
   return (
     <section className="section grid md:grid-cols-5 md:gap-3 gap-20 items-start ">
       <div className="w-full col-span-3">
-        <NewsCardMain />
+        <NewsCardMain {...unicNewsData} />
       </div>
       <div className="flex flex-col gap-5 p-[.625rem] col-span-3 md:col-span-2  md:[&>*:last-child]:hidden 2xl:[&>*:last-child]:flex ">
         <TopicTitle text="Notícias populares" />
-
-        <NewsCard
-          title="Férias de julho: dicas de atividades para crianças com autismo"
-          paragraph="As férias de julho podem ser desafiadoras para crianças com autismo devido à hipersensibilidade sensorial
-          causada por estímulos excessivos. Estratégias como a dessensibilização sistematizada e a criação de um
-          ambiente tranquilo podem ajudar."
-          category="Justiça e Política"
-          date="20 de outubro de 2024"
-          link="#"
-        />
-        <NewsCard
-          title="Férias de julho: dicas de atividades para crianças com autismo"
-          paragraph="As férias de julho podem ser desafiadoras para crianças com autismo devido à hipersensibilidade sensorial
-          causada por estímulos excessivos. Estratégias como a dessensibilização sistematizada e a criação de um
-          ambiente tranquilo podem ajudar."
-          category="Justiça e Política"
-          date="20 de outubro de 2024"
-          link="#"
-        />
-        <NewsCard
-          title="Férias de julho: dicas de atividades para crianças com autismo"
-          paragraph="As férias de julho podem ser desafiadoras para crianças com autismo devido à hipersensibilidade sensorial
-          causada por estímulos excessivos. Estratégias como a dessensibilização sistematizada e a criação de um
-          ambiente tranquilo podem ajudar."
-          category="Justiça e Política"
-          date="20 de outubro de 2024"
-          link="#"
-        />
+        {threeNewsData?.map((data) => (
+          <NewsCard
+            key={data.id}
+            title={data.titulo}
+            paragraph={data.resumo}
+            category={getCategoryInfo(data.categoria).name}
+            date="20 de outubro de 2024"
+            link={`/noticias/noticia?id=${data.id}`}
+          />
+        ))}
       </div>
     </section>
   );

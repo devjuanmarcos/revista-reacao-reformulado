@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { NextImage } from "../ui/NextImage";
 import { NextImageType } from "@/@types/types";
+import { Noticia } from "@/@types/services";
+import { getCategoryInfo } from "@/utils/categories";
 
 interface NewsCardProps {
   image?: NextImageType;
@@ -14,12 +16,12 @@ interface NewsCardProps {
   extraClassName?: string;
 }
 
-export const NewsCardMain = () => {
+export const NewsCardMain = (data: Noticia) => {
   return (
     <div className="flex flex-col gap-3 text-start aspect-[17/10]">
       <NextImage
-        imageUrl="/img/temp/temp.png"
-        altImage="Imagem alternativa"
+        imageUrl={data.imagem!}
+        altImage={data.textoAlternativoImagem || data.titulo}
         sizes="720px"
         width={720}
         height={478}
@@ -27,19 +29,16 @@ export const NewsCardMain = () => {
       />
       <div className="flex flex-col text-start">
         <div className="flex gap-[.625rem] items-center">
-          <span className="paragraph-1 p-1 rounded-[.25rem] border border-[#FF5C00] w-max">Justiça e política</span>
+          <span className="paragraph-1 p-1 rounded-[.25rem] border border-[#FF5C00] w-max">
+            {getCategoryInfo(data.categoria).name}
+          </span>
           <span className="">- 20 de outubro de 2024</span>
         </div>
-        <h2 className="h2-medium">
-          Denúncia grave de preconceito racial durante V Conferência Nacional dos Direitos da PcD
-        </h2>
-        <p className="mt-2 paragraph-2">
-          Jô Nunes, militante de longa data pelos direitos da PcD, denuncia discriminação racial sofrida durante a V
-          Conferência Nacional dos Direitos da PcD, causando revolta e mobilização entre os conselheiros.
-        </p>
+        <h2 className="h2-medium">{data.titulo}</h2>
+        <p className="mt-2 paragraph-2">{data.resumo}</p>
       </div>
 
-      <Link href={"#"} className="cta">
+      <Link href={`/noticias/noticia?id=${data.id}`} className="cta">
         Continuar lendo
       </Link>
     </div>
@@ -55,6 +54,7 @@ export const NewsCard = ({
   image,
   extraClassName,
   imageUrl,
+  altImage,
 }: NewsCardProps) => {
   return (
     <div className={`flex flex-col gap-2 text-start border-b border-var-cinza-150 w-full ${extraClassName}`}>
@@ -66,7 +66,7 @@ export const NewsCard = ({
         {image && (
           <NextImage
             imageUrl={image.imageUrl}
-            altImage="Imagem alternativa"
+            altImage={altImage || title}
             sizes="400px"
             width={400}
             height={235}

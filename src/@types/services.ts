@@ -49,7 +49,8 @@ interface FilterNoticiaParams {
 interface FilterPaginatedNoticiaParams {
   page?: number;
   size?: number;
-  sort?: string[];
+  asc?: boolean;
+  desc?: boolean;
 }
 
 type Noticia = {

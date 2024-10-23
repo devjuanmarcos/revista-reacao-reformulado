@@ -4,17 +4,32 @@ import * as React from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { NewsCard } from "../cards/NewsCard";
 import { TopicTitle } from "../ui/TopicTitle";
-
-const image = {
-  imageUrl: "/img/temp/temp.png",
-  altImage: "Imagem alternativa",
-  sizes: "720px",
-  width: 720,
-  height: 478,
-  className: "w-full h-full object-cover bg-cover bg-center rounded-lg",
-};
+import { Noticia } from "@/@types/services";
+import { getAllDailyNewsAction } from "@/app/actions/newsActions";
+import { getCategoryInfo } from "@/utils/categories";
 
 export function DailyNewsSection() {
+  const [dailyNews, setDailyNews] = React.useState<Noticia[] | null>(null);
+  const [isMounted, setIsMounted] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    async function fetch() {
+      try {
+        const res = await getAllDailyNewsAction();
+        setDailyNews(res.content);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsMounted(true);
+      }
+    }
+    fetch();
+  }, []);
+
+  if (!isMounted || !dailyNews) {
+    return null;
+  }
+
   return (
     <Carousel
       opts={{
@@ -25,19 +40,17 @@ export function DailyNewsSection() {
       <TopicTitle text="Notícias do dia" />
 
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="lg:basis-[auto] select-none">
+        {dailyNews.map((data) => (
+          <CarouselItem key={data.id} className="lg:basis-[auto] select-none">
             <div className="p-1 flex items-center justify-center">
               <NewsCard
                 extraClassName="w-full max-w-[80vw] lg:max-w-[25rem]"
-                image={image}
-                title="Férias de julho: dicas de atividades para crianças com autismo"
-                paragraph="As férias de julho podem ser desafiadoras para crianças com autismo devido à hipersensibilidade sensorial
-          causada por estímulos excessivos. Estratégias como a dessensibilização sistematizada e a criação de um
-          ambiente tranquilo podem ajudar."
-                category="Justiça e Política"
+                imageUrl={data.imagem}
+                title={data.titulo}
+                paragraph={data.resumo}
+                category={getCategoryInfo(data.categoria).name}
                 date="20 de outubro de 2024"
-                link="#"
+                link={`/noticias/noticia?id=${data.id}`}
               />
             </div>
           </CarouselItem>
