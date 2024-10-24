@@ -73,7 +73,7 @@ export const Header = () => {
 
             <MenubarMenu>
               <MenubarTrigger>
-                <Link className="" href="/instituto-biomob">
+                <Link className="" href="/noticias">
                   <span className="nav-bar-medium">Notícias</span>
                 </Link>
               </MenubarTrigger>

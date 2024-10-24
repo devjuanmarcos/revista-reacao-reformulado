@@ -88,6 +88,7 @@ const config: Config = {
 
           branco: {
             "100": "rgb(var(--var-branco-100))",
+            "card-100": "rgb(var(--var-branco-card))",
           },
 
           cinza: {

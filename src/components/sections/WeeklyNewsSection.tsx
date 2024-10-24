@@ -7,6 +7,7 @@ import { TopicTitle } from "../ui/TopicTitle";
 import { Noticia } from "@/@types/services";
 import { getAllWeeklyNewsAction } from "@/app/actions/newsActions";
 import { getCategoryInfo } from "@/utils/categories";
+import { formatDateMouth } from "@/utils/formateData";
 
 const image = {
   imageUrl: "/img/temp/temp.png",
@@ -58,7 +59,7 @@ export function WeeklyNewsSection() {
                 title={data.titulo}
                 paragraph={data.resumo}
                 category={getCategoryInfo(data.categoria).name}
-                date="20 de outubro de 2024"
+                date={formatDateMouth(data.data as unknown as string)}
                 link={`/noticias/noticia?id=${data.id}`}
               />
             </div>

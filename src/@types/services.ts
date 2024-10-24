@@ -3,6 +3,24 @@ type LoginProps = {
   password: string;
 };
 
+type CategoriesType =
+  | "ACESSIBILIDADE"
+  | "ACIDENTESEDESASTRESNATURAIS"
+  | "CONFLITOSEGUERRAS"
+  | "CULTURA"
+  | "ESPECIAL"
+  | "ESPORTES"
+  | "ENTREVISTA"
+  | "EVENTOS"
+  | "FAMOSOS"
+  | "INTERNACIONAL"
+  | "JUSTICAEPOLITICA"
+  | "SAUDE"
+  | "TECNOLOGIA"
+  | "TESTDRIVE"
+  | "TRABALHO"
+  | "TRAGEDIASSOCIAIS";
+
 type ApiResponse<T> = {
   content: T[];
   empty: boolean;
@@ -51,6 +69,7 @@ interface FilterPaginatedNoticiaParams {
   size?: number;
   asc?: boolean;
   desc?: boolean;
+  categoria?: CategoriesType;
 }
 
 type Noticia = {
@@ -90,4 +109,13 @@ type Revista = {
   capa?: string;
 };
 
-export type { ApiResponse, LoginProps, Noticia, Boletim, Revista, FilterNoticiaParams, FilterPaginatedNoticiaParams };
+export type {
+  ApiResponse,
+  LoginProps,
+  Noticia,
+  Boletim,
+  Revista,
+  FilterNoticiaParams,
+  FilterPaginatedNoticiaParams,
+  CategoriesType,
+};

@@ -6,6 +6,7 @@
   :root {
     /* BRANCO  */
     --var-branco-100: 255, 255, 255;
+    --var-branco-card: 245, 245, 245;
 
     /* CINZA  */
     --var-cinza-150: 168, 168, 168;
@@ -77,6 +78,7 @@
   .dark {
     /* BRANCO  */
     --var-branco-100: 255, 255, 255;
+    --var-branco-card: 31, 31, 31;
 
     /* CINZA  */
     --var-cinza-400: 76, 76, 76;
@@ -147,6 +149,12 @@
     -o-transition: background-color 0.3s linear;
     -ms-transition: background-color 0.3s linear;
     transition: background-color 0.3s linear;
+  }
+
+  .main-title {
+    line-height: 46px;
+    font-size: 2.375rem;
+    font-weight: bold;
   }
 
   .h2-medium {

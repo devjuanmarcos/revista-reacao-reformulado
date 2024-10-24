@@ -8,3 +8,29 @@ export const formatDate = (date: string): string => {
     return date;
   }
 };
+
+export function formatDateMouth(data: string | undefined): string {
+  const meses = [
+    "janeiro",
+    "fevereiro",
+    "março",
+    "abril",
+    "maio",
+    "junho",
+    "julho",
+    "agosto",
+    "setembro",
+    "outubro",
+    "novembro",
+    "dezembro",
+  ];
+
+  if (data) {
+    const [ano, mes, dia] = data.split("-");
+    const nomeMes = meses[parseInt(mes, 10) - 1];
+
+    return `${parseInt(dia, 10)} de ${nomeMes} de ${ano}`;
+  } else {
+    return "";
+  }
+}

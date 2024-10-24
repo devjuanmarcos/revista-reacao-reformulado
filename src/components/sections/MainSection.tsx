@@ -5,6 +5,7 @@ import { getNewsByIdAction, getPaginatedNewsAction } from "@/app/actions/newsAct
 import { NewsCard, NewsCardMain } from "@/components/cards/NewsCard";
 import { TopicTitle } from "@/components/ui/TopicTitle";
 import { getCategoryInfo } from "@/utils/categories";
+import { formatDateMouth } from "@/utils/formateData";
 import React from "react";
 
 export const MainSection = () => {
@@ -50,7 +51,7 @@ export const MainSection = () => {
             title={data.titulo}
             paragraph={data.resumo}
             category={getCategoryInfo(data.categoria).name}
-            date="20 de outubro de 2024"
+            date={formatDateMouth(data.data as unknown as string)}
             link={`/noticias/noticia?id=${data.id}`}
           />
         ))}

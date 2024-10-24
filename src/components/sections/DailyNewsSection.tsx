@@ -7,6 +7,7 @@ import { TopicTitle } from "../ui/TopicTitle";
 import { Noticia } from "@/@types/services";
 import { getAllDailyNewsAction } from "@/app/actions/newsActions";
 import { getCategoryInfo } from "@/utils/categories";
+import { formatDateMouth } from "@/utils/formateData";
 
 export function DailyNewsSection() {
   const [dailyNews, setDailyNews] = React.useState<Noticia[] | null>(null);
@@ -26,7 +27,7 @@ export function DailyNewsSection() {
     fetch();
   }, []);
 
-  if (!isMounted || !dailyNews) {
+  if (!isMounted || !dailyNews || dailyNews.length == 0) {
     return null;
   }
 
@@ -49,7 +50,7 @@ export function DailyNewsSection() {
                 title={data.titulo}
                 paragraph={data.resumo}
                 category={getCategoryInfo(data.categoria).name}
-                date="20 de outubro de 2024"
+                date={formatDateMouth(data.data as unknown as string)}
                 link={`/noticias/noticia?id=${data.id}`}
               />
             </div>
