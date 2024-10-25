@@ -8,6 +8,7 @@ import { GeistSans } from "geist/font/sans";
 import { Header } from "@/components/header/Header";
 import { BarTools } from "@/components/barra-acessibilidade/BarTools";
 import Script from "next/script";
+import { PaginationProvider } from "@/context/PaginationContext";
 
 const APP_NAME = "Revista Reação";
 const APP_DEFAULT_TITLE = "Biomob";
@@ -66,14 +67,16 @@ export default function RootLayout({
       <body className={`${GeistSans.className}`}>
         <WindowSizeProvider>
           <HtmlFontSizeProvider>
-            <ThemeProvider defaultTheme="dark" attribute="class" enableSystem={false}>
-              <div className="header">
-                <BarTools />
-              </div>
-              <Header />
-              <main className="pt-[5rem]">{children}</main>
-              <div className="flex justify-center w-full bg-[rgb(var(--var-background-principal))] pt-8"></div>
-            </ThemeProvider>
+            <PaginationProvider>
+              <ThemeProvider defaultTheme="dark" attribute="class" enableSystem={false}>
+                <div className="header">
+                  <BarTools />
+                </div>
+                <Header />
+                <main className="pt-[5rem]">{children}</main>
+                <div className="flex justify-center w-full bg-[rgb(var(--var-background-principal))] pt-8"></div>
+              </ThemeProvider>
+            </PaginationProvider>
           </HtmlFontSizeProvider>
         </WindowSizeProvider>
       </body>

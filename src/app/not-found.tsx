@@ -28,7 +28,7 @@ export default async function NotFound() {
         <h1 className="text-3xl font-bold mb-10">Página não encontrada</h1>
         <h1 className="text-var-cinza-600 text-lg">A página que você está procurando não existe.</h1>
         <div className="hidden sm:flex mt-16">
-          <Link href="http://www.biomob.org/home">
+          <Link href="http://www.revistareacao.com.br">
             <Button text={"Voltar"} variant={"primary"} size={"normal"} />
           </Link>
         </div>

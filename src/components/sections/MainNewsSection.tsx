@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const MainNewsSection = () => {
   return (
-    <section className="section pt-20">
+    <section className=" pt-20">
       <div
         className={` bg-[url("/noticias/desfileCapaTemp.png")] bg-center bg-cover w-full h-auto flex flex-col items-center justify-end rounded-lg `}
       >

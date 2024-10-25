@@ -1,7 +1,6 @@
 "use client";
 import React, { memo, Suspense } from "react";
 import { AdvertisingSectionProps } from "@/@types/types";
-
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import dynamic from "next/dynamic";
