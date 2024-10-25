@@ -14,7 +14,7 @@ export async function findAllPaginatedNoticia(
   params: FilterPaginatedNoticiaParams = {}
 ): Promise<ApiResponse<Noticia>> {
   const queryString = new URLSearchParams(params as any).toString();
-  return fetchWrapper(`/noticias?${queryString}`);
+  return fetchWrapper(`/noticias/filtradas?${queryString}`);
 }
 
 export async function findAllDailyNoticia(): Promise<ApiResponse<Noticia>> {

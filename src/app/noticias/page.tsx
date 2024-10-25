@@ -19,9 +19,9 @@ export default function News() {
         categories.map(async (category) => {
           try {
             const pagination: FilterPaginatedNoticiaParams = {
-              asc: true,
+              desc: true,
               page: 0,
-              size: 10,
+              size: 6,
               categoria: category.id as unknown as CategoriesType,
             };
             const res = await getPaginatedNewsAction(pagination);
