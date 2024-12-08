@@ -4,11 +4,11 @@ import { useHtmlFontSize } from "@/context/HtmlFontSizeContext";
 import { fontSize } from "@/utils/fontSize";
 import { VLibras } from "@/utils/vLibras";
 import { IoLogoInstagram } from "react-icons/io5";
-import { FaLinkedinIn, FaFacebookF, FaYoutube, FaGooglePlay, FaApple } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn, FaFacebookF, FaYoutube } from "react-icons/fa";
 import React from "react";
 import { LibrasButton } from "../button/LibrasButton";
 import { ChangeThemeButton } from "../button/ChangeThemeButton";
+import { Skeleton } from "../ui/skeleton";
 
 export const BarTools = () => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
@@ -24,68 +24,55 @@ export const BarTools = () => {
   }
 
   if (!isMounted) {
-    return null;
+    return <Skeleton className="w-full h-[2.875rem]" />;
   }
   return (
     <div className="bg-bg-marca200 fixed w-full z-50">
       <div className="flex items-center justify-between px-5 lg:px-[6.25rem] p-2 my-0 mx-auto">
-        <div className="flex items-center justify-center h-[1.925rem] border border-text-branco  px-2 rounded-md ">
+        <div className="flex items-center justify-center h-[1.925rem] border border-white  px-2 rounded-md ">
           <VLibras />
-          <p className="t0 text-text-branco pr-1 max-sm:sr-only">Acessibilidade</p>
+          <p className="t0 text-white pr-1 max-sm:sr-only">Acessibilidade</p>
 
-          <div className="w-[1px] h-[70%] bg-text-verde-medio max-sm:hidden" />
+          <div className="w-[1px] h-[70%] bg-white max-sm:hidden" />
           <button
             onClick={() => fontSize.decrease(setHtmlFontSize)}
             aria-label="Diminuir tamanho da fonte"
-            className="text-text-branco t2 px-1"
+            className="text-white t2 px-1"
           >
             <span aria-hidden="true">A-</span>
           </button>
           <button
             onClick={() => fontSize.normalize(setHtmlFontSize)}
             aria-label="Normalizar tamanho da fonte"
-            className="text-text-branco t2 px-1"
+            className="text-white t2 px-1"
           >
             <span aria-hidden="true">aA</span>
           </button>
           <button
             onClick={() => fontSize.increase(setHtmlFontSize)}
             aria-label="Aumentar tamanho da fonte"
-            className="text-text-branco t2 px-1"
+            className="text-white t2 px-1"
           >
             <span aria-hidden="true">A+</span>
           </button>
-          <div className="w-[1px] h-[70%] bg-text-branco" />
+          <div className="w-[1px] h-[70%] bg-white" />
           <ChangeThemeButton />
-          <div className="w-[1px] h-[70%] bg-text-branco" />
+          <div className="w-[1px] h-[70%] bg-white" />
           <LibrasButton />
         </div>
         <div className="flex items-center justify-center h-[1.925rem] px-2 gap-x-4">
           <div className="flex items-center justify-center h-[1.925rem] px-2 gap-x-4">
-            <button onClick={() => openInNewTab("https://www.instagram.com/biomobguia/")}>
-              <IoLogoInstagram className="text-lg text-text-branco" />
+            <button onClick={() => openInNewTab("https://www.instagram.com/revistareacao/")}>
+              <IoLogoInstagram className="text-lg text-white" />
             </button>
             <button onClick={() => openInNewTab("https://www.linkedin.com/company/biomob/")}>
-              <FaLinkedinIn className="text-lg text-text-branco" />
+              <FaLinkedinIn className="text-lg text-white" />
             </button>
-            <button onClick={() => openInNewTab("https://pt-br.facebook.com/biomobguia/")}>
-              <FaFacebookF className="text-lg text-text-branco" />
+            <button onClick={() => openInNewTab("https://www.facebook.com/revista.reacao/?locale=pt_BR")}>
+              <FaFacebookF className="text-lg text-white" />
             </button>
-            <button onClick={() => openInNewTab("https://google.com.br/")}>
-              <FaXTwitter className="text-lg text-text-branco" />
-            </button>
-            <button onClick={() => openInNewTab("https://www.youtube.com/@biomobguia")}>
-              <FaYoutube className="text-lg text-text-branco" />
-            </button>
-            <p className="max-sm:hidden text-lg text-text-branco">|</p>
-            <p className="max-sm:hidden t1 roboto-font text-text-branco">Baixe o app</p>
-          </div>
-          <div className="max-sm:hidden flex items-center justify-center h-[1.925rem] px-2 gap-x-4">
-            <button onClick={() => openInNewTab("https://apps.apple.com/br/app/biomob/id1090156739")}>
-              <FaApple className="text-lg text-text-branco" />
-            </button>
-            <button onClick={() => openInNewTab("https://play.google.com/store/apps/details?id=com.biomob.bioplus")}>
-              <FaGooglePlay className="text-lg text-text-branco" />
+            <button onClick={() => openInNewTab("https://www.youtube.com/@tvreacao5830")}>
+              <FaYoutube className="text-lg text-white" />
             </button>
           </div>
         </div>

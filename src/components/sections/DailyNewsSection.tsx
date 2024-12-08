@@ -43,7 +43,7 @@ export function DailyNewsSection() {
       <CarouselContent>
         {dailyNews.map((data) => (
           <CarouselItem key={data.id} className="lg:basis-[auto] select-none">
-            <div className="p-1 flex items-center justify-center h-full">
+            <div className="p-1 flex items-start justify-center h-full">
               <NewsCard
                 extraClassName="w-full max-w-[80vw] justify-between lg:h-full lg:max-w-[25rem]"
                 imageUrl={data.imagem}

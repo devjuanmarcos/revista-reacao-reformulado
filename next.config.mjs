@@ -46,6 +46,12 @@ export default withSerwist({
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "cbkracjbkuqkxxmomlei.supabase.co",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 });

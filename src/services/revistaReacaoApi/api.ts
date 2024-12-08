@@ -1,26 +1,49 @@
-const baseURL = process.env.BASE_URL || "";
+import axios, { AxiosInstance } from "axios";
+import { destroyCookie, parseCookies } from "nookies";
 
-async function fetchWrapper(endpoint: string, options: RequestInit = {}): Promise<any> {
-  const response = await fetch(`${baseURL}${endpoint}`, {
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      ...(options.headers || {}),
-    },
-  });
+let cookies = parseCookies();
+export let apiRevistaReacao: AxiosInstance;
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || "An error occurred");
+apiRevistaReacao = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+});
+
+apiRevistaReacao.interceptors.request.use(
+  (config) => {
+    cookies = parseCookies();
+    const { "revosta-reacao.token": token } = cookies;
+
+    if (token) {
+      config.headers["Authorization"] = "Bearer " + token;
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
+);
 
-  // Verifica se o conteúdo da resposta é JSON antes de tentar parsear
-  const contentType = response.headers.get("content-type");
-  if (contentType && contentType.includes("application/json")) {
-    return response.json();
-  } else {
-    throw new Error("Response is not JSON");
+apiRevistaReacao.interceptors.response.use(
+  (res: any) => {
+    return res;
+  },
+  async (error) => {
+    if (error?.response) {
+      if (error?.response?.status === 401) {
+        if (error?.response?.data?.message === "Usuário inexistente ou senha inválida") {
+          return Promise.reject(error);
+        } else if (
+          error?.response?.data?.message.includes("É necessário estar autenticado para utilizar este recurso") ||
+          error?.response?.data?.message.includes("Token inválido ou expirado")
+        ) {
+          destroyCookie(undefined, "revosta-reacao.token");
+          if (typeof window !== "undefined") {
+            window.location.href = "/entrar";
+          }
+        }
+      }
+    }
+    return Promise.reject(error);
   }
-}
-
-export default fetchWrapper;
+);

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { TopicTitle } from "../ui/TopicTitle";
 import { findById } from "@/services/revistaReacaoApi/boletimService";
 import { Boletim } from "@/@types/services";
+import { buttonVariants } from "../ui/button";
 
 export const VideoFrameSection = () => {
   const [video, setVideo] = React.useState<Boletim>();
@@ -76,6 +77,9 @@ export const VideoFrameSection = () => {
               <div className="flex flex-col text-start">
                 <h2 className="h2-medium">{video.titulo}</h2>
                 <p className="mt-2 paragraph-2">{video.descricao}</p>
+                <Link href={video.link} target="_blank" className={`${buttonVariants()} mt-4`} title="Assistir boletim">
+                  Assistir boletim
+                </Link>
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@ import { NextImage } from "../ui/NextImage";
 import { NextImageType } from "@/@types/types";
 import { Noticia } from "@/@types/services";
 import { getCategoryInfo } from "@/utils/categories";
+import { formatDateMouth } from "@/utils/formateData";
 
 interface NewsCardProps {
   image?: NextImageType;
@@ -32,7 +33,7 @@ export const NewsCardMain = (data: Noticia) => {
           <span className="paragraph-1 p-1 rounded-[.25rem] border border-[#FF5C00] w-max">
             {getCategoryInfo(data.categoria).name}
           </span>
-          <span className="">- 20 de outubro de 2024</span>
+          <span className="">- {formatDateMouth(data.data as unknown as string)}</span>
         </div>
         <h2 className="h2-medium">{data.titulo}</h2>
         <p className="mt-2 paragraph-2">{data.resumo}</p>
@@ -61,7 +62,7 @@ export const NewsCard = ({
       <div className="flex flex-col gap-2 text-start">
         <div className="flex gap-[.625rem] items-center">
           <span className="paragraph-1 p-1 rounded-[.25rem] border border-[#FF5C00] w-max">{category}</span>
-          <span className="">- {date}</span>
+          <span className="max-md:hidden">- {date}</span>
         </div>
         {image && (
           <NextImage
@@ -70,7 +71,7 @@ export const NewsCard = ({
             sizes="400px"
             width={400}
             height={235}
-            className="w-full h-[14.6875rem] object-cover bg-cover bg-center rounded-lg"
+            className="w-full h-[14.6875rem] object-cover object-left rounded-lg"
           />
         )}
         {imageUrl && (
@@ -80,7 +81,7 @@ export const NewsCard = ({
             sizes="400px"
             width={400}
             height={235}
-            className="w-full h-[14.6875rem] object-cover bg-cover bg-center rounded-lg"
+            className="w-full h-[14.6875rem] object-cover object-left rounded-lg"
           />
         )}
         <h2 className="title-card">{title}</h2>

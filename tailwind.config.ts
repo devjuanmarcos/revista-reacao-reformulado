@@ -110,6 +110,7 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         miniSectionBackgroundTexture: "url(/img/miniSectionBackgroundTexture.svg)",
+        "edition-banner": "url('/img/capa.png')",
       },
       animation: {
         scroll: "scroll 40s linear infinite",

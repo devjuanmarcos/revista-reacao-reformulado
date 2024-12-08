@@ -1,7 +1,12 @@
 "use client";
 
 import { Noticia } from "@/@types/services";
-import { getNewsByIdAction, getPaginatedNewsAction } from "@/app/actions/newsActions";
+import {
+  getMainBannerNewsAction,
+  getNewsByIdAction,
+  getPaginatedNewsAction,
+  getThreeMainBannerNewsAction,
+} from "@/app/actions/newsActions";
 import { NewsCard, NewsCardMain } from "@/components/cards/NewsCard";
 import { TopicTitle } from "@/components/ui/TopicTitle";
 import { getCategoryInfo } from "@/utils/categories";
@@ -15,16 +20,11 @@ export const MainSection = () => {
 
   React.useEffect(() => {
     async function fetch() {
-      const ThreeNewsPagination = {
-        page: 2,
-        size: 3,
-        asc: true,
-      };
       try {
-        const threeNewsRes = await getPaginatedNewsAction(ThreeNewsPagination);
-        const unicNewsRes = await getNewsByIdAction("f4472088-0bf2-4925-a396-17efcf958080");
+        const threeNewsRes = await getThreeMainBannerNewsAction();
+        const unicNewsRes = await getMainBannerNewsAction();
         setThreeNewsData(threeNewsRes.content);
-        setUnicNewsData(unicNewsRes);
+        setUnicNewsData(unicNewsRes.content[0]);
       } catch (error) {
         console.log(error);
       } finally {

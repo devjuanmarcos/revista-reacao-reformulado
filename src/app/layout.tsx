@@ -9,11 +9,13 @@ import { Header } from "@/components/header/Header";
 import { BarTools } from "@/components/barra-acessibilidade/BarTools";
 import Script from "next/script";
 import { PaginationProvider } from "@/context/PaginationContext";
+import Footer from "@/components/footer/footer";
 
 const APP_NAME = "Revista Reação";
-const APP_DEFAULT_TITLE = "Biomob";
+const APP_DEFAULT_TITLE = "Revista Reação";
 const APP_TITLE_TEMPLATE = "%s";
-const APP_DESCRIPTION = "Biomob!";
+const APP_DESCRIPTION =
+  "Além das notícias convencionais, o boletim diário do Reação TV destaca eventos, histórias e realizações da comunidade local e global.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_FRONTEND_URL || "http://localhost:3000"),
@@ -63,18 +65,18 @@ export default function RootLayout({
       suppressHydrationWarning
       lang="pt-BR"
     >
-      <Script defer data-domain="biomob.org" src="https://plausible.biomob.app/js/script.js" />
+      <Script defer data-domain="revistareacao.com.br" src="https://plausible.biomob.app/js/script.js" />
       <body className={`${GeistSans.className}`}>
         <WindowSizeProvider>
           <HtmlFontSizeProvider>
             <PaginationProvider>
-              <ThemeProvider defaultTheme="dark" attribute="class" enableSystem={false}>
+              <ThemeProvider defaultTheme="light" attribute="class" enableSystem={false}>
                 <div className="header">
                   <BarTools />
                 </div>
                 <Header />
                 <main className="pt-[5rem]">{children}</main>
-                <div className="flex justify-center w-full bg-[rgb(var(--var-background-principal))] pt-8"></div>
+                <Footer />
               </ThemeProvider>
             </PaginationProvider>
           </HtmlFontSizeProvider>

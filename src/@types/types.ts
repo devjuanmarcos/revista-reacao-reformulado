@@ -23,10 +23,12 @@ type IconProps = {
 
 type AdvertisingSectionProps = {
   href?: string;
+  topTitle?: string;
   src: string;
   alt: string;
   title?: string;
   description?: string;
+  buttonText?: string;
 };
 
 type Category = {

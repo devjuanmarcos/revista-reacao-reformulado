@@ -101,12 +101,43 @@ type Boletim = {
   data?: string;
 };
 
-type Revista = {
-  id?: string | number;
+interface ArrayLinks {
   nome: string;
-  data: string;
-  descricao: string;
-  capa?: string;
+  link: string;
+}
+
+type Revista = {
+  id?: bigint | number;
+  created_at: string;
+  name: string;
+  description: string;
+  image_url: string;
+  pdf_url: string;
+};
+
+type Vaga = {
+  id: number;
+  nomeVaga: string;
+  descricao?: string[];
+  requisitos?: string[];
+  observacao?: string;
+  beneficios?: string[];
+  local?: string;
+  links?: ArrayLinks[];
+  telefone?: string;
+  email?: string;
+  salario?: string;
+  createdAt?: string;
+};
+
+type Carro = {
+  id: number;
+  marca: string;
+  modelo: string;
+  imagem: string;
+  categoria: string;
+  votosPorTema: number;
+  votosGerais: number;
 };
 
 export type {
@@ -118,4 +149,6 @@ export type {
   FilterNoticiaParams,
   FilterPaginatedNoticiaParams,
   CategoriesType,
+  Vaga,
+  Carro,
 };
