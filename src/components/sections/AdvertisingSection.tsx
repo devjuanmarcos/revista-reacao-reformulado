@@ -4,8 +4,20 @@ import Image from "next/image";
 import { TopicTitle } from "../ui/TopicTitle";
 import Link from "next/link";
 import { AdvertisingSectionProps } from "@/@types/types";
+import React from "react";
+import { Skeleton } from "../ui/skeleton";
 
 export const AdvertisingSection = ({ href, src, alt, description, title }: AdvertisingSectionProps) => {
+  const [isMounted, setIsMounted] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return <Skeleton className="w-full h-auto aspect-[1300/800]" />;
+  }
+
   return (
     <section className="section flex w-full h-full flex-col gap-8">
       <div className="w-full flex gap-[4.4375rem] max-md:gap-8  justify-between items-center max-md:flex-col ">
@@ -36,6 +48,16 @@ export const AdvertisingSection = ({ href, src, alt, description, title }: Adver
 };
 
 export const AdvertisinghorizontalSection = ({ alt, src, href }: AdvertisingSectionProps) => {
+  const [isMounted, setIsMounted] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return <Skeleton className="w-full h-auto aspect-[1300/300]" />;
+  }
+
   return (
     <section className="section flex flex-col gap-4">
       <TopicTitle text="Publicidade" />
