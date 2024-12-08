@@ -42,11 +42,6 @@ const HomePage: React.FC = () => {
         <MainSection />
       </Suspense>
 
-      <Script
-        src="https://scripts.cleverwebserver.com/761d1f5eabce2506cf6f889c41338659.js"
-        strategy="afterInteractive"
-        id="clever-core"
-      />
       <CarOfTheYearSection {...CarOfTheYear} />
       <DailyNewsSection />
       <AdvertisinghorizontalSection {...firstAdvertising} />
