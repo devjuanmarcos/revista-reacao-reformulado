@@ -73,7 +73,6 @@ const HomePage: React.FC = () => {
 
   const threeAdvertising: AdvertisingSectionProps = {
     src: "/temp/anuncios/hyundai-anuncios/bannerhyundai.jpg",
-    quality: 75,
     alt: "Hyundai Facilita.",
     href: "https://www.hyundai.com.br/vendas-diretas.html?utm_source=Google&utm_medium=PMAX&utm_campaign=ONGOING_RETAIL_CRETA_SU2_2024&utm_content=PMAX_CRETA_PLATINUMSAFETYCTETO_PR_162690_SC_OPEN_OF&gad_source=1&gclid=CjwKCAjwuMC2BhA7EiwAmJKRrJV9okjWcLIqpp9OPzvINexoAjVxZtiL4VIcltLlpWAxMSR7NQuWpxoCUA8QAvD_BwE",
   };
