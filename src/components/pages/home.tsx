@@ -43,10 +43,10 @@ const HomePage: React.FC = () => {
       </Suspense>
 
       <CarOfTheYearSection {...CarOfTheYear} />
-      {/* <DailyNewsSection />
+      <DailyNewsSection />
       <AdvertisinghorizontalSection {...firstAdvertising} />
       <VideoFrameSection />
-      <AdvertisinghorizontalSection {...secondAdvertising} />
+      {/*<AdvertisinghorizontalSection {...secondAdvertising} />
       <WeeklyNewsSection />
       <AdvertisinghorizontalSection {...threeAdvertising} />
       <SweepstakeSection {...Sweepstake} />
