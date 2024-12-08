@@ -113,8 +113,8 @@ const HomePage: React.FC = () => {
 
       {/* <AdvertisinghorizontalSection {...threeAdvertising} />
       <SweepstakeSection {...Sweepstake} />
-      <AdvertisinghorizontalSection {...fourAdvertising} />
-      <AdvertisingSection {...lastAdvertising} /> */}
+      <AdvertisinghorizontalSection {...fourAdvertising} /> */}
+      <AdvertisingSection {...lastAdvertising} />
     </section>
   );
 };
