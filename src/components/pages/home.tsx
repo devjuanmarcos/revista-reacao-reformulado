@@ -111,8 +111,8 @@ const HomePage: React.FC = () => {
       <AdvertisinghorizontalSection {...secondAdvertising} />
       <WeeklyNewsSection />
 
-      {/* <AdvertisinghorizontalSection {...threeAdvertising} />
-      <SweepstakeSection {...Sweepstake} /> */}
+      {/* <AdvertisinghorizontalSection {...threeAdvertising} /> */}
+      <SweepstakeSection {...Sweepstake} />
       <AdvertisinghorizontalSection {...fourAdvertising} />
       <AdvertisingSection {...lastAdvertising} />
     </section>
