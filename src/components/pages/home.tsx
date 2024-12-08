@@ -4,8 +4,9 @@ import { AdvertisingSectionProps } from "@/@types/types";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import dynamic from "next/dynamic";
-import Script from "next/script";
 import { AdvertisinghorizontalSection, AdvertisingSection } from "../sections/AdvertisingSection";
+import { WeeklyNewsSection } from "../sections/WeeklyNewsSection";
+import { SweepstakeSection } from "../sections/SweepstakeSection";
 
 const MainSection = dynamic(() => import("@/sections/MainSection").then((mod) => mod.MainSection), {
   loading: () => (
@@ -17,8 +18,6 @@ const MainSection = dynamic(() => import("@/sections/MainSection").then((mod) =>
 const DailyNewsSection = dynamic(() => import("@/sections/DailyNewsSection").then((mod) => mod.DailyNewsSection));
 
 const VideoFrameSection = dynamic(() => import("@/sections/VideoFrameSection").then((mod) => mod.VideoFrameSection));
-const WeeklyNewsSection = dynamic(() => import("@/sections/WeeklyNewsSection").then((mod) => mod.WeeklyNewsSection));
-const SweepstakeSection = dynamic(() => import("@/sections/SweepstakeSection").then((mod) => mod.SweepstakeSection));
 const CarOfTheYearSection = dynamic(() =>
   import("@/sections/CarOfTheYearSection").then((mod) => mod.CarOfTheYearSection)
 );
