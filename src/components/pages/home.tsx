@@ -43,7 +43,7 @@ const HomePage: React.FC = () => {
       </Suspense>
 
       <CarOfTheYearSection {...CarOfTheYear} />
-      <DailyNewsSection />
+      {/* <DailyNewsSection />
       <AdvertisinghorizontalSection {...firstAdvertising} />
       <VideoFrameSection />
       <AdvertisinghorizontalSection {...secondAdvertising} />
@@ -51,7 +51,7 @@ const HomePage: React.FC = () => {
       <AdvertisinghorizontalSection {...threeAdvertising} />
       <SweepstakeSection {...Sweepstake} />
       <AdvertisinghorizontalSection {...fourAdvertising} />
-      <AdvertisingSection {...lastAdvertising} />
+      <AdvertisingSection {...lastAdvertising} /> */}
     </section>
   );
 };
