@@ -113,9 +113,9 @@ const HomePage: React.FC = () => {
 
       {/* Esses 4 banners abaixo estã fazendo meu site mobile quebrar. Ele fica reiniciando sem parar e depois quebra. Não sei o motivo */}
       <AdvertisinghorizontalSection {...threeAdvertising} />
-      <SweepstakeSection {...Sweepstake} />
+      {/* <SweepstakeSection {...Sweepstake} />
       <AdvertisinghorizontalSection {...fourAdvertising} />
-      <AdvertisingSection {...lastAdvertising} />
+      <AdvertisingSection {...lastAdvertising} /> */}
     </section>
   );
 };
