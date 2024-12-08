@@ -4,9 +4,7 @@ import { AdvertisingSectionProps } from "@/@types/types";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import dynamic from "next/dynamic";
-import { AdvertisinghorizontalSection, AdvertisingSection } from "../sections/AdvertisingSection";
-import { WeeklyNewsSection } from "../sections/WeeklyNewsSection";
-import { SweepstakeSection } from "../sections/SweepstakeSection";
+import Script from "next/script";
 
 const MainSection = dynamic(() => import("@/sections/MainSection").then((mod) => mod.MainSection), {
   loading: () => (
@@ -16,16 +14,31 @@ const MainSection = dynamic(() => import("@/sections/MainSection").then((mod) =>
   ),
 });
 const DailyNewsSection = dynamic(() => import("@/sections/DailyNewsSection").then((mod) => mod.DailyNewsSection));
-
+const AdvertisinghorizontalSection = dynamic(() =>
+  import("@/sections/AdvertisingSection").then((mod) => mod.AdvertisinghorizontalSection)
+);
 const VideoFrameSection = dynamic(() => import("@/sections/VideoFrameSection").then((mod) => mod.VideoFrameSection));
+const WeeklyNewsSection = dynamic(() => import("@/sections/WeeklyNewsSection").then((mod) => mod.WeeklyNewsSection));
+const AdvertisingSection = dynamic(() => import("@/sections/AdvertisingSection").then((mod) => mod.AdvertisingSection));
+const SweepstakeSection = dynamic(() => import("@/sections/SweepstakeSection").then((mod) => mod.SweepstakeSection));
 const CarOfTheYearSection = dynamic(() =>
   import("@/sections/CarOfTheYearSection").then((mod) => mod.CarOfTheYearSection)
 );
 
 const HomePage: React.FC = () => {
+  const [isMounted, setIsMounted] = React.useState<boolean>(false);
+
   React.useEffect(() => {
-    import("@/sections/MainSection");
+    setIsMounted(true);
   }, []);
+
+  if (!isMounted) {
+    return (
+      <div className="w-full h-[80vh] flex justify-center">
+        <Loader2 className={cn("h-12 w-12  m-auto animate-spin")} />
+      </div>
+    );
+  }
 
   return (
     <section className="flex flex-col gap-20 justify-center items-center w-full h-full  pt-[2.5rem] pb-20 ">
