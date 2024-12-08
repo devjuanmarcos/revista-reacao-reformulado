@@ -29,6 +29,7 @@ type AdvertisingSectionProps = {
   title?: string;
   description?: string;
   buttonText?: string;
+  quality?: number;
 };
 
 type Category = {

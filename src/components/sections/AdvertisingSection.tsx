@@ -47,7 +47,7 @@ export const AdvertisingSection = ({ href, src, alt, description, title }: Adver
   );
 };
 
-export const AdvertisinghorizontalSection = ({ alt, src, href }: AdvertisingSectionProps) => {
+export const AdvertisinghorizontalSection = ({ alt, src, href, quality }: AdvertisingSectionProps) => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
 
   React.useEffect(() => {
@@ -70,7 +70,7 @@ export const AdvertisinghorizontalSection = ({ alt, src, href }: AdvertisingSect
           layout="responsive"
           width={1200}
           height={230}
-          quality={100}
+          quality={quality || 100}
         />
       </Link>
     </section>
