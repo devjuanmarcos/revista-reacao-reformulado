@@ -46,9 +46,9 @@ const HomePage: React.FC = () => {
       <DailyNewsSection />
       <AdvertisinghorizontalSection {...firstAdvertising} />
       <VideoFrameSection />
-      {/*<AdvertisinghorizontalSection {...secondAdvertising} />
+      <AdvertisinghorizontalSection {...secondAdvertising} />
       <WeeklyNewsSection />
-      <AdvertisinghorizontalSection {...threeAdvertising} />
+      {/* <AdvertisinghorizontalSection {...threeAdvertising} />
       <SweepstakeSection {...Sweepstake} />
       <AdvertisinghorizontalSection {...fourAdvertising} />
       <AdvertisingSection {...lastAdvertising} /> */}
