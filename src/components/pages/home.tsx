@@ -48,10 +48,10 @@ const HomePage: React.FC = () => {
       <VideoFrameSection />
       <AdvertisinghorizontalSection {...secondAdvertising} />
       <WeeklyNewsSection />
-      {/* <AdvertisinghorizontalSection {...threeAdvertising} />
+      <AdvertisinghorizontalSection {...threeAdvertising} />
       <SweepstakeSection {...Sweepstake} />
       <AdvertisinghorizontalSection {...fourAdvertising} />
-      <AdvertisingSection {...lastAdvertising} /> */}
+      <AdvertisingSection {...lastAdvertising} />
     </section>
   );
 };
