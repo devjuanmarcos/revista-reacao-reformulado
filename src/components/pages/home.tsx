@@ -52,9 +52,10 @@ const HomePage: React.FC = () => {
   };
 
   const Sweepstake: AdvertisingSectionProps = {
-    alt: "1 CANECA DA MOVE DESENVOLVIMENTO HUMANO",
-    src: "/img/temp/sorteio/caneca-move-desenvolvimento.jpeg",
-    title: "Sorteio de uma linda caneca da MOVE Desenvolvimento humano",
+    alt: "Preencha o Formulário de inscrição para participar do sorteio de 1 KIT DE LIVROS DE MARCELO VILAS BOAS – “MÊ DÊ SUA MÃO + QUANDO ENTREGO A MINHA DOR” ",
+    src: "/img/temp/sorteio/2LIVROS.png",
+    title:
+      "Preencha o Formulário de inscrição para participar do sorteio de 1 KIT DE LIVROS DE MARCELO VILAS BOAS – “MÊ DÊ SUA MÃO + QUANDO ENTREGO A MINHA DOR” ",
     description:
       "Preencha o Formulário de inscrição para participar do sorteio ESPECIAL DE 01 CANECA DA MOVE DESENVOLVIMENTO HUMANO",
   };
