@@ -65,11 +65,6 @@ export default function RootLayout({
       suppressHydrationWarning
       lang="pt-BR"
     >
-      <Script
-        src="https://scripts.cleverwebserver.com/761d1f5eabce2506cf6f889c41338659.js"
-        strategy="afterInteractive"
-        id="clever-core"
-      />
       <body className={`${GeistSans.className}`}>
         <WindowSizeProvider>
           <HtmlFontSizeProvider>

@@ -79,7 +79,7 @@ const HomePage: React.FC = () => {
   };
 
   const fourAdvertising: AdvertisingSectionProps = {
-    src: "/temp/anuncios/citroen/banneraircross_1800x300.png",
+    src: "/temp/anuncios/citroen/banner basalt_1800x300-HORIZ.png",
     alt: "Novo AirCross.",
     href: "https://www.citroen.com.br/vendas-diretas/pcd.html",
   };
