@@ -70,7 +70,7 @@ export default function RootLayout({
           <HtmlFontSizeProvider>
             <PaginationProvider>
               <ThemeProvider defaultTheme="light" attribute="class" enableSystem={false}>
-                <div className="header">
+                <div className="header ">
                   <BarTools />
                 </div>
                 <Header />
