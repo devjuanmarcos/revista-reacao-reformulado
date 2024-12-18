@@ -10,6 +10,7 @@ import { BarTools } from "@/components/barra-acessibilidade/BarTools";
 import Script from "next/script";
 import { PaginationProvider } from "@/context/PaginationContext";
 import Footer from "@/components/footer/footer";
+import CombinedHeader from "@/components/header/CombinedHeader";
 
 const APP_NAME = "Revista Reação";
 const APP_DEFAULT_TITLE = "Revista Reação";
@@ -71,9 +72,8 @@ export default function RootLayout({
             <PaginationProvider>
               <ThemeProvider defaultTheme="light" attribute="class" enableSystem={false}>
                 <div className="header ">
-                  <BarTools />
+                  <CombinedHeader />
                 </div>
-                <Header />
                 <main className="pt-[5rem]">{children}</main>
                 <Footer />
               </ThemeProvider>

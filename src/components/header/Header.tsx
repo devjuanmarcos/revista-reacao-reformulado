@@ -40,7 +40,7 @@ export const Header = () => {
   ];
 
   return (
-    <header className="header w-full bg-[rgb(var(--var-marca-100-08))] backdrop-blur-lg min-h-[3.25rem] flex items-center justify-center px-4 max-sm:px-2 max-2sm:flex-col-reverse max-2sm:py-1 fixed top-[45px] z-50">
+    <header className="header w-full bg-[rgb(var(--var-marca-100-08))] backdrop-blur-lg min-h-[3.25rem] flex items-center justify-center px-4 max-sm:px-2 max-2sm:flex-col-reverse max-2sm:py-1  top-[45px] z-50">
       <div className="px-5 lg:px-[6.25rem] overflow-visible my-0 mx-auto flex items-center justify-center sm:justify-between w-full">
         <button onClick={toggleSidebar} className="lg:hidden mr-4">
           <svg className={`w-6 h-6 text-text-cinza-escuro`} fill="none" viewBox="0 0 24 24" stroke="currentColor">

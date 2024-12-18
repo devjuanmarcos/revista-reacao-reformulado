@@ -22,6 +22,8 @@
 
     /* background colors */
     --var-background-principal: 253, 253, 253;
+    --var-barra-acessibilidade-icone: 255, 255, 255;
+    --var-verde-barra-acessibilidade: 1, 169, 152;
 
     --var-marca-50: 246, 249, 249;
     --var-marca-75: 241, 247, 247;
@@ -48,14 +50,16 @@
     --var-text-verde-escuro: 26, 135, 114;
 
     /* Shadcn configuration */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0, 0%, 100%;
+    --background-hover: 0, 0%, 100%, 0.8;
+    --foreground: 0, 6.8%, 8.1%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0, 6.8%, 8.1%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover-foreground: 0, 6.8%, 8.1%;
+    --primary: 174, 99%, 33%;
+    --primary-hover: 171, 78%, 47%, 0.9;
+    --primary-foreground: 0, 0%, 100%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
@@ -92,6 +96,8 @@
     --var-verde-600: 26, 135, 114;
 
     --var-background-principal: 10, 10, 10;
+    --var-barra-acessibilidade-icone: 255, 255, 255;
+
     --var-marca-50: 36, 37, 37;
     --var-marca-65: 35, 36, 36;
     --var-marca-80: 34, 36, 36;
@@ -117,14 +123,16 @@
     --var-text-verde-escuro: 161, 201, 190;
 
     /* Shadcn configuration */
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0, 0%, 20%;
+    --background-hover: 0, 6.8%, 8.1%, 0.8;
+    --foreground: 0, 0%, 100%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 174, 99%, 41%;
+    --primary-hover: 174, 100%, 26%, 0.9;
+    --primary-foreground: 0, 0%, 0%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
@@ -235,4 +243,84 @@
 }
 
 @layer base {
+}
+
+.custom-transform {
+  transform: none !important;
+  top: 100% !important;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  background: rgb(var(--var-barra-acessibilidade-icone));
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 4px;
+  height: 20px;
+  border-radius: 12px;
+  background: rgb(var(--var-barra-acessibilidade-icone));
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 4px;
+  height: 20px;
+  border-radius: 12px;
+  background: rgb(var(--var-barra-acessibilidade-icone));
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgb(var(--var-barra-acessibilidade-icone));
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-track {
+  background: rgb(var(--var-barra-acessibilidade-icone));
+  border-color: transparent;
+  color: transparent;
+}
+
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+@media (max-width: 1024px) {
+  .bg-img {
+    position: unset;
+  }
+}
+
+.blur-up {
+  filter: blur(5px);
+  transition: filter 0.3s ease-in-out;
+}
+
+.blur-up:not([data-loaded]) {
+  filter: blur(5px);
+}
+
+.blur-up[data-loaded] {
+  filter: blur(0);
+}
+
+.cursor-wait {
+  cursor: wait !important;
 }
