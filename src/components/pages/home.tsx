@@ -67,9 +67,9 @@ const HomePage: React.FC = () => {
   };
 
   const secondAdvertising: AdvertisingSectionProps = {
-    src: "/temp/anuncios/hyundai-anuncios/BANNER-PCD-CRETA-HB20.jpg",
+    src: "/temp/anuncios/hyundai-anuncios/AFO_2110_POST.jpg",
     alt: "O conforto e a segurança que você merece.",
-    href: "https://hmbcaoa.com.br/?utm_source=revista_reacao&utm_medium=cpc&utm_campaign=creta_hb20",
+    href: "https://hmbcaoa.com.br?utm_source=reacao&utm_medium=cpm&utm_campaign=pullse_hmb_alcance_awareness_site_reacao_cpm_display_hb20&utm_content=n01-interesses-HM-35a65_all_all_br_re-impressoes&utm_term=all-dimensions_estatico_hmb_hb20_semoferta_id-0441",
   };
 
   const threeAdvertising: AdvertisingSectionProps = {
