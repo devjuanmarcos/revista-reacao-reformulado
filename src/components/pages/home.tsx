@@ -4,7 +4,6 @@ import { AdvertisingSectionProps } from "@/@types/types";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import dynamic from "next/dynamic";
-import Script from "next/script";
 
 const MainSection = dynamic(() => import("@/sections/MainSection").then((mod) => mod.MainSection), {
   loading: () => (
@@ -21,9 +20,7 @@ const VideoFrameSection = dynamic(() => import("@/sections/VideoFrameSection").t
 const WeeklyNewsSection = dynamic(() => import("@/sections/WeeklyNewsSection").then((mod) => mod.WeeklyNewsSection));
 const AdvertisingSection = dynamic(() => import("@/sections/AdvertisingSection").then((mod) => mod.AdvertisingSection));
 const SweepstakeSection = dynamic(() => import("@/sections/SweepstakeSection").then((mod) => mod.SweepstakeSection));
-const CarOfTheYearSection = dynamic(() =>
-  import("@/sections/CarOfTheYearSection").then((mod) => mod.CarOfTheYearSection)
-);
+
 
 const HomePage: React.FC = () => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
@@ -52,7 +49,6 @@ const HomePage: React.FC = () => {
         <MainSection />
       </Suspense>
 
-      <CarOfTheYearSection {...CarOfTheYear} />
       <DailyNewsSection />
       <AdvertisinghorizontalSection {...firstAdvertising} />
       <VideoFrameSection />
@@ -70,16 +66,7 @@ const HomePage: React.FC = () => {
 HomePage.displayName = "HomePage";
 export default memo(HomePage);
 
-const CarOfTheYear: AdvertisingSectionProps = {
-  alt: "Votação para o prêmio de carro do ano para PCD",
-  src: "/temp/carro-do-ano/LOGO CARRO DO ANO - 2024.jpg",
-  buttonText: "Quero votar",
-  href: "/premio-carro-do-ano",
-  title: "Votação para o prêmio de carro do ano para PCD",
-  topTitle: "Carro do Ano",
-  description:
-    "Para este ano de 2024 estamos vindo com uma novidade. Agora, vamos eleger o “melhor carro para pessoas com deficiência” em 4 categorias diferentes – elétricos, SUV, compactos e sedan – você pode votar em todas as 4 categorias no modelo e marca que mais te agrada.",
-};
+
 
 const Sweepstake: AdvertisingSectionProps = {
   alt: "Preencha o Formulário de inscrição para participar do sorteio de 1 KIT DE LIVROS DE MARCELO VILAS BOAS – “MÊ DÊ SUA MÃO + QUANDO ENTREGO A MINHA DOR” ",
