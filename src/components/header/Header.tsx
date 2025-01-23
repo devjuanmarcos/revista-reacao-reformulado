@@ -36,7 +36,7 @@ export const Header = () => {
     { href: "/edicoes", label: "Edições" },
     { href: "/noticias", label: "Notícias" },
     { href: "/vagas-emprego", label: "Vagas de Emprego" },
-    { href: "/premio-carro-do-ano", label: "Votação Carro do Ano" },
+    // { href: "/premio-carro-do-ano", label: "Votação Carro do Ano" },
   ];
 
   return (
