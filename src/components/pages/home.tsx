@@ -21,7 +21,6 @@ const WeeklyNewsSection = dynamic(() => import("@/sections/WeeklyNewsSection").t
 const AdvertisingSection = dynamic(() => import("@/sections/AdvertisingSection").then((mod) => mod.AdvertisingSection));
 const SweepstakeSection = dynamic(() => import("@/sections/SweepstakeSection").then((mod) => mod.SweepstakeSection));
 
-
 const HomePage: React.FC = () => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
 
@@ -56,17 +55,15 @@ const HomePage: React.FC = () => {
       <WeeklyNewsSection />
 
       <AdvertisinghorizontalSection {...threeAdvertising} />
-      <SweepstakeSection {...Sweepstake} />
+      {/* <SweepstakeSection {...Sweepstake} /> */}
       <AdvertisinghorizontalSection {...fourAdvertising} />
-      <AdvertisingSection {...lastAdvertising} />
+      {/* <AdvertisingSection {...lastAdvertising} /> */}
     </section>
   );
 };
 
 HomePage.displayName = "HomePage";
 export default memo(HomePage);
-
-
 
 const Sweepstake: AdvertisingSectionProps = {
   alt: "Preencha o Formulário de inscrição para participar do sorteio de 1 KIT DE LIVROS DE MARCELO VILAS BOAS – “MÊ DÊ SUA MÃO + QUANDO ENTREGO A MINHA DOR” ",
