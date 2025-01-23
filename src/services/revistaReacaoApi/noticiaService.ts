@@ -18,11 +18,11 @@ export async function findAllPaginatedNoticia(
 }
 
 export async function find3MainBannerNoticia(): Promise<ApiResponse<Noticia>> {
-  return fetchWrapper("/noticias/filtradas?sort=data,desc&page=9&size=3", {});
+  return fetchWrapper("/noticias/filtradas?sort=data,desc&page=2&size=3", {});
 }
 
 export async function findMainBannerNoticia(): Promise<ApiResponse<Noticia>> {
-  return fetchWrapper("/noticias/filtradas?sort=data,desc&page=12&size=1", {});
+  return fetchWrapper("/noticias/filtradas?sort=data,desc&page=9&size=1", {});
 }
 
 export async function findAllDailyNoticia(): Promise<ApiResponse<Noticia>> {
