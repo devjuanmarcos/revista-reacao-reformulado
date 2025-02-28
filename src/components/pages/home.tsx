@@ -66,7 +66,7 @@ HomePage.displayName = "HomePage";
 export default memo(HomePage);
 
 const Sweepstake: AdvertisingSectionProps = {
-  alt: "Preencha o Formulário de inscrição para participar do sorteio ESPECIAL DE 1 CANECA DA TV REAÇÃO.",
+  alt: "Preencha o Formulário de inscrição para participar do sorteio de 1 CANECA DA TV REAÇÃO.",
   src: "/img/temp/sorteio/3canecas.jpeg",
   title: "Preencha o Formulário de inscrição para participar do sorteio de 1 CANECA DA TV REAÇÃO.",
   description: "Preencha o Formulário de inscrição para participar do sorteio ESPECIAL DE 1 CANECA DA TV REAÇÃO.",
