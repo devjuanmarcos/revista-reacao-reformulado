@@ -59,10 +59,10 @@ const HomePage: React.FC = () => {
 
       {/* <AdvertisinghorizontalSection {...threeAdvertising} /> */}
       <SweepstakeSection {...Sweepstake} />
-      <AdvertisinghorizontalSection {...fourAdvertising} />
+      {/* <AdvertisinghorizontalSection {...fourAdvertising} /> */}
       {/* <AdvertisingSection {...lastAdvertising} /> */}
       <DialogComponent
-        advertisings={[firstAdvertising, secondAdvertising, fourAdvertising]}
+        advertisings={[firstAdvertising, secondAdvertising]}
         open={modalOpen}
         setOpen={setModalOpen}
         title=""
