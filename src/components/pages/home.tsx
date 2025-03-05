@@ -4,11 +4,12 @@ import { AdvertisingSectionProps } from "@/@types/types";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import dynamic from "next/dynamic";
+import { DialogComponent } from "../ui/dialog-form";
 
 const MainSection = dynamic(() => import("@/sections/MainSection").then((mod) => mod.MainSection), {
   loading: () => (
     <div className="w-full h-[80vh] flex justify-center">
-      <Loader2 className={cn("h-12 w-12  m-auto animate-spin")} />
+      <Loader2 className={cn("h-12 w-12 m-auto animate-spin")} />
     </div>
   ),
 });
@@ -23,25 +24,27 @@ const SweepstakeSection = dynamic(() => import("@/sections/SweepstakeSection").t
 
 const HomePage: React.FC = () => {
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
+  const [modalOpen, setModalOpen] = React.useState<boolean>(false); // Inicialmente false
 
   React.useEffect(() => {
+    setModalOpen(window.innerWidth > 640);
     setIsMounted(true);
   }, []);
 
   if (!isMounted) {
     return (
       <div className="w-full h-[80vh] flex justify-center">
-        <Loader2 className={cn("h-12 w-12  m-auto animate-spin")} />
+        <Loader2 className={cn("h-12 w-12 m-auto animate-spin")} />
       </div>
     );
   }
 
   return (
-    <section className="flex flex-col gap-20 justify-center items-center w-full h-full  pt-[2.5rem] pb-20 ">
+    <section className="flex flex-col gap-20 justify-center items-center w-full h-full pt-[2.5rem] pb-20">
       <Suspense
         fallback={
           <div className="w-full h-[80vh] flex justify-center">
-            <Loader2 className={cn("h-12 w-12  m-auto animate-spin")} />
+            <Loader2 className={cn("h-12 w-12 m-auto animate-spin")} />
           </div>
         }
       >
@@ -58,6 +61,13 @@ const HomePage: React.FC = () => {
       <SweepstakeSection {...Sweepstake} />
       <AdvertisinghorizontalSection {...fourAdvertising} />
       {/* <AdvertisingSection {...lastAdvertising} /> */}
+      <DialogComponent
+        advertisings={[firstAdvertising, secondAdvertising, fourAdvertising]}
+        open={modalOpen}
+        setOpen={setModalOpen}
+        title=""
+        maxWidth="max-w-[96vw]"
+      />
     </section>
   );
 };
@@ -65,6 +75,7 @@ const HomePage: React.FC = () => {
 HomePage.displayName = "HomePage";
 export default memo(HomePage);
 
+// Definições de advertising permanecem iguais
 const Sweepstake: AdvertisingSectionProps = {
   alt: "Preencha o Formulário de inscrição para participar do sorteio ESPECIAL DE 1 CANECA DA TV REAÇÃO",
   src: "/img/temp/sorteio/3canecas.jpeg",
@@ -73,9 +84,9 @@ const Sweepstake: AdvertisingSectionProps = {
 };
 
 const firstAdvertising: AdvertisingSectionProps = {
-  src: "/temp/anuncios/jeep-acessivel-anuncios/18682_banner-horizontal_1800x300_mm_jeep_pcd-a.jpg",
-  alt: "Jeep Renegade - O mundo da aventura é para você!",
-  href: "https://mclartymaia.com.br",
+  src: "/temp/anuncios/nissan/KICKS.jpeg",
+  alt: "Nissan Kicks - Melhor carro do ano para pessoa com deficiência",
+  href: "",
 };
 
 const secondAdvertising: AdvertisingSectionProps = {
