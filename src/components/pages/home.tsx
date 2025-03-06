@@ -86,7 +86,7 @@ const Sweepstake: AdvertisingSectionProps = {
 const firstAdvertising: AdvertisingSectionProps = {
   src: "/temp/anuncios/nissan/KICKS.jpeg",
   alt: "Nissan Kicks - Melhor carro do ano para pessoa com deficiência",
-  href: "",
+  href: "https://www.nissan.com.br/ofertas.html?dcp=dis-spe-kickplay-ntvd-kicksplay-t1-cpm-a25+-na-prc-oferta-vrnac24bq103000000309-bra-rg&utm_source=dis&utm_medium=rra&utm_campaign=kicksplay_kickplay_ntvd&utm_term=vrnac24bq103000000309&utm_content=t1-cpm-prc-ofertakicksxplay_aw#offerId=NHON030",
 };
 
 const secondAdvertising: AdvertisingSectionProps = {
